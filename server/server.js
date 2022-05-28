@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
 
 // ROUTES
-//app.use('/to-do-list',toDoRouter )
+app.use('/to_do_list',toDoRouter )
 
 // Start listening for requests on a specific port
 app.listen(PORT, () => {

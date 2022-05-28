@@ -1,10 +1,10 @@
-CREATE TABLE "to-do-list" (
+CREATE TABLE "to_do_list" (
 	"id" serial primary key,
 	"chore" VARCHAR(80) NOT NULL,
 	"effort_required" INTEGER,
 	"complete" BOOLEAN
 	);
-INSERT INTO "to-do-list"
+INSERT INTO "to_do_list"
 	(chore, effort_required, complete)
 VALUES 
 	('Vaccum Rugs', 2, false),

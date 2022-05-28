@@ -20,4 +20,4 @@
 
 ---- JS ---
 {X} include a `database.sql` file
-{ } `CREATE TABLE` queries
+{X} `CREATE TABLE` queries
