@@ -1,6 +1,28 @@
-h1{
-    color: red;
+h2{
+    color: lime ;
+    font-family: 'Courier New', Courier, monospace;
 }
+
 th{
-    padding: 4em;
+    color: lime ;
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+section{
+    position: relative;
+}
+table{
+    padding: 1em;
+    background-color: black;
+    margin: 25px;
+    position: absolute;
+    color: red;
+    border: solid white;
+   
+}
+
+body{
+    background-color: cornflowerblue;
+    padding: 1em;
 }

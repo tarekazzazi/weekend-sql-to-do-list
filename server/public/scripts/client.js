@@ -9,7 +9,6 @@ function OnReady() {
     // loads current tasks to DOM
     getTasks();
    
-    
 }
 
  function clickListener(){
@@ -29,6 +28,7 @@ function OnReady() {
     $(document).on('click','.removeBtn', deleteTask);
     $(document).on('click', '.taskCompleteBtn', completeTask);
  }
+ 
 
 function getTasks(){
 
@@ -38,6 +38,7 @@ function getTasks(){
     })
     .then((response) => {
         console.log(response);
+        
         displayList(response);
 
     })
@@ -102,13 +103,14 @@ function getTasks(){
 
           let taskId = $(this).parents("tr").data("id");
           let Complete = $(this).parents("tr").data("task-complete");
-
+          //$(this).parents("tr").css('background-color','green');
+           
           console.log('in completeTask', Complete);
 
           const updatedTaskStatus = {
               Complete: true,
           };
-
+         
       $.ajax({
         method: "PUT",
         url: `/tasks/${taskId}`,
@@ -121,5 +123,8 @@ function getTasks(){
       .catch((err) => {
         console.log('Uh ohh there is a err',err);
       })
-      
+       
   }
+
+ 
+   

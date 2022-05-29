@@ -8,7 +8,7 @@
 {X} delete should remove from DATABASE and frontend
 
 ------ CSS -------
-{ } background color of page 
+{X} background color of page 
 { } font family and size
 { } text color & 'background-color' of tasks 
 *to show whether or not they have been completed*
