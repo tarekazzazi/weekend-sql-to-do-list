@@ -5,8 +5,11 @@ function OnReady() {
     console.log("JQ ready!");
 
     clickListener();
-
+    
+    // loads current tasks to DOM
     getTasks();
+   
+    
 }
 
  function clickListener(){
@@ -22,7 +25,8 @@ function OnReady() {
             // console.log tests
             console.log('New task to be added is',taskToAdd);
             saveNewTask(taskToAdd);
-        })
+        });
+    $(document).on('click','.removeBtn', deleteTask);
  }
 
 function getTasks(){
@@ -64,11 +68,22 @@ function getTasks(){
     for (let i = 0; i < response.length; i++) {
         let task = response[i];
         $("#taskList").append(`
-        <li> ${task.name} ${task.isComplete} 
-        <button>Remove</button>
-        <button>✅</button>
-        </li>
+        <tr data-id=${task.id}>
+            <td>${task.name}</td>
+            <td>${task.isComplete}</td>
+            <td><button class="removeBtn">Remove</button></td>
+            <td><button class="taskComplete">✅</button><td>
+        </tr>
         `)
     }
   
  }
+
+ function deleteTask() {
+    let tr = $(this).parents("tr");
+    let taskId = tr.data("id");
+    console.log('in delete', taskId);
+
+     
+    
+  }

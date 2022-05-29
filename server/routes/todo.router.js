@@ -49,4 +49,28 @@ toDoRouter.post("/", (req, res) => {
         });
 });
 
+// Delete
+
+toDoRouter.delete('/:deleteTask', (req, res) => {
+    let taskId = req.params.deleteTask
+    console.log('In Delete', taskId);
+    const sqlQuery =`
+        DELETE FROM "tasks"
+        WHERE "id" = $1;
+    `;
+    const sqlParams = [
+        taskId,
+    ];
+
+    pool.query(sqlQuery,sqlParams)
+        .then(() => {
+            console.log('It worked');
+            res.sendStatus(204)
+        })
+        .catch((err) => {
+            console.log(`DELETE failed: ${err}`);
+            res.sendStatus(500);
+        })
+})
+
 module.exports = toDoRouter;
