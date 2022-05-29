@@ -14,8 +14,8 @@ toDoRouter.get("/", (req, res) => {
     pool
         .query(sqlQuery)
         .then((responce) => {
-            console.log('get working',responce);
-            res.send(responce);
+            console.log('get working',responce.rows);
+            res.send(responce.rows);
         })
         .catch((err) => {
             console.log("error getting to tasks",err);

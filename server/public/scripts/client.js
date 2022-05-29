@@ -33,6 +33,7 @@ function getTasks(){
     })
     .then((response) => {
         console.log(response);
+        displayList(response);
 
     })
     .catch((err) => {
@@ -54,4 +55,20 @@ function getTasks(){
     .catch((err) => {
         console.log("Error in POST on client side",err);
     });
+ }
+
+ function displayList(response) {
+     console.log('in displayList');
+    $("#taskList").empty();
+
+    for (let i = 0; i < response.length; i++) {
+        let task = response[i];
+        $("#taskList").append(`
+        <li> ${task.name} ${task.isComplete} 
+        <button>Remove</button>
+        <button>✅</button>
+        </li>
+        `)
+    }
+  
  }
