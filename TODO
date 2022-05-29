@@ -1,0 +1,23 @@
+------- APP MUSTS -----
+{ } allows a user to create a Task
+{ } Task must be stored in DATA BASE
+{ } New TASK created refresh page and show 'tasks-to-complete'
+{ } complete and Delete task btns
+{ } Task complete visual change ex.(container from grey to green) and complete option should be checked off
+{ } store tasks complete in DATABASE
+{ } delete should remove from DATABASE and frontend
+
+------ CSS -------
+{ } background color of page 
+{ } font family and size
+{ } text color & 'background-color' of tasks 
+*to show whether or not they have been completed*
+
+----- create a DATA BASE ----
+{X} named `weekend-to-do-app`
+
+
+
+---- JS ---
+{X} include a `database.sql` file
+{X} `CREATE TABLE` queries
