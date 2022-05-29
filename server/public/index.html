@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,17 +10,28 @@
     <link rel="stylesheet" href="style/style.css">
     <title>Weekend Challenge: SQL To-Do List</title>
 </head>
-<body>
-    <h1>HELLO READY TO START</h1>
-    <section id="AddTask">
-        <input type="text" id="TaskName" placeholder="Enter New Task">
-        <select id="isTaskComplete">
-            <option>Select task status</option>
-            <option>Complete</option>
-            <option>Not Complete</option>
-        </select>
-        <button id="addTaskBtn">Add New Task</button>
 
+<body>
+
+    <h2>Add task to list</h2>
+    <section id="AddTask">
+        <input type="text" id="taskName" placeholder="Enter New Task">
+        <button id="addTaskBtn">Add New Task</button>
     </section>
-</body>
+    <table class="tasksTable">
+        <thead>
+            <tr>
+                <th>Tasks To Do</th>
+                <th>Status</th>
+                <th>Delete</th>
+                <th>Mark as Done</th>
+            </tr>
+        </thead>
+        <div class="container">
+            <tbody id="taskList">
+            
+            </tbody>
+        </div>
+    </table>
+
 </html>
