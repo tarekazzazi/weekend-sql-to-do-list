@@ -83,7 +83,18 @@ function getTasks(){
     let tr = $(this).parents("tr");
     let taskId = tr.data("id");
     console.log('in delete', taskId);
-
+   
+    $.ajax({
+        method: "DELETE",
+        url: `/tasks/${taskId}`,
+    })
+    .then(() => {
+        console.log('delete success');
+        getTasks();
+    })
+    .catch((err) => {
+        alert("Failed to delete")
+    })
      
     
   }
