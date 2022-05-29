@@ -9,8 +9,8 @@
 
 ------ CSS -------
 {X} background color of page 
-{ } font family and size
-{ } text color & 'background-color' of tasks 
+{X} font family and size
+{X} text color & 'background-color' of tasks 
 *to show whether or not they have been completed*
 
 ----- create a DATA BASE ----
