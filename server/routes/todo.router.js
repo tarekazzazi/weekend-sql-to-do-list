@@ -49,6 +49,31 @@ toDoRouter.post("/", (req, res) => {
         });
 });
 
+//PUT
+toDoRouter.put('/:id', (req, res) => {
+
+    console.log('Updating task status',req.params.id, req.body.Complete);
+
+
+    let taskId = req.params.id;
+
+    let Complete = req.body.Complete;
+
+    let queryString = `
+    UPDATE "tasks"
+    SET "isComplete" = $1
+    WHERE id = $2;
+    `;
+    pool.query(queryString, [Complete, taskId ])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log('PUT to db failed',err);
+            res.sendStatus(500);
+        });
+})
+
 // Delete
 
 toDoRouter.delete('/:deleteTask', (req, res) => {

@@ -2,7 +2,7 @@
 {X} allows a user to create a Task
 {X} Task must be stored in DATA BASE
 {X} New TASK created refresh page and show 'tasks-to-complete'
-{ } complete and Delete task btns
+{X} complete and Delete task btns
 { } Task complete visual change ex.(container from grey to green) and complete option should be checked off
 {X} store tasks complete in DATABASE
 {X} delete should remove from DATABASE and frontend

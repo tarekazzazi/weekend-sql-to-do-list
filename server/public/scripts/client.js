@@ -27,6 +27,7 @@ function OnReady() {
             saveNewTask(taskToAdd);
         });
     $(document).on('click','.removeBtn', deleteTask);
+    $(document).on('click', '.taskCompleteBtn', completeTask);
  }
 
 function getTasks(){
@@ -68,11 +69,11 @@ function getTasks(){
     for (let i = 0; i < response.length; i++) {
         let task = response[i];
         $("#taskList").append(`
-        <tr data-id=${task.id}>
+        <tr data-id=${task.id} data-task-complete ${task.isComplete}>
             <td>${task.name}</td>
             <td>${task.isComplete}</td>
             <td><button class="removeBtn">Remove</button></td>
-            <td><button class="taskComplete">✅</button><td>
+            <td><button class="taskCompleteBtn">✅</button><td>
         </tr>
         `)
     }
@@ -93,8 +94,32 @@ function getTasks(){
         getTasks();
     })
     .catch((err) => {
-        alert("Failed to delete")
+        alert("Failed to delete",err)
     })
-     
-    
+  }
+
+  function completeTask() {
+
+          let taskId = $(this).parents("tr").data("id");
+          let Complete = $(this).parents("tr").data("task-complete");
+
+          console.log('in completeTask', Complete);
+
+          const updatedTaskStatus = {
+              Complete: true,
+          };
+
+      $.ajax({
+        method: "PUT",
+        url: `/tasks/${taskId}`,
+        data: updatedTaskStatus
+      })
+      .then(() => {
+          console.log('Put request working');
+          getTasks();
+      })
+      .catch((err) => {
+        console.log('Uh ohh there is a err',err);
+      })
+      
   }
