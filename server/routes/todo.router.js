@@ -24,4 +24,29 @@ toDoRouter.get("/", (req, res) => {
     
 })
 
+// POST
+toDoRouter.post("/", (req, res) => {
+  
+    let newTask = req.body;
+
+        newTask.isComplete = false;
+    
+
+    console.log('Adding new task to list',newTask);
+
+    let queryText = `INSERT INTO "tasks"
+        ("name","isComplete")
+            VALUES ($1,$2);
+    `;
+    pool
+        .query(queryText, [ newTask.name, newTask.isComplete])
+        .then(result => {
+            res.sendStatus(201);
+        })
+        .catch(err => {
+            console.log('Errot adding task to POST', err);
+            res.sendStatus(500);
+        });
+});
+
 module.exports = toDoRouter;

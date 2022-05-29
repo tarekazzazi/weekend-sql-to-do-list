@@ -40,6 +40,18 @@ function getTasks(){
     });
 }
 
-// function saveNewTask(newTask) {
-    
-// }
+ function saveNewTask(newTask) {
+    // POST
+    $.ajax({
+        type: "POST",
+        url: "/tasks",
+        data: newTask,
+    })
+    .then((response) => {
+        console.log("POST from server:", response);
+        getTasks();
+    })
+    .catch((err) => {
+        console.log("Error in POST on client side",err);
+    });
+ }
