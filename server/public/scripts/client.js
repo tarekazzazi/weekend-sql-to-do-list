@@ -4,16 +4,16 @@ $(document).ready(OnReady);
 function OnReady() {
     console.log("JQ ready!");
 
-    getChores();
+    getTasks();
 }
 
-function getChores(){
+function getTasks(){
 
-    console.log('In get chores');
+   
 
     $.ajax({
         type: "GET",
-        url: "/to_do_list",   
+        url: "/tasks",   
     })
     .then((response) => {
         console.log(response);

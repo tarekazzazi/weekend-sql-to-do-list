@@ -9,7 +9,7 @@ const pool = require("../modules/pool");
 // GET
 toDoRouter.get("/", (req, res) => {
     let sqlQuery = `
-        SELECT * FROM to_do_list
+        SELECT * FROM tasks
     `;
     pool
         .query(sqlQuery)
@@ -18,7 +18,7 @@ toDoRouter.get("/", (req, res) => {
             res.send(responce);
         })
         .catch((err) => {
-            console.log("error getting to_do_list",err);
+            console.log("error getting to tasks",err);
             res.sendStatus(500);
         })
     
